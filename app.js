@@ -19,7 +19,7 @@ const downloadBtn = document.getElementById("downloadBtn");
     const response = await fetch("https://api.deepai.org/api/torch-srgan", {
       method: "POST",
       headers: {
-        "Api-Key": "f9a4be1a-73ca-465f-9fbb-4ff8e57ba43c"
+        "Api-Key": "810f7f3e-766f-4632-8b92-ac2e56dbabca"
       },
       body: formData
     });
