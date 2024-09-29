@@ -7,7 +7,7 @@ body {
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: linear-gradient(135deg, #ff7e5f, #feb47b);
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4); /* Gradient colors */
   color: #fff;
   text-align: center;
 }
@@ -16,9 +16,10 @@ body {
 .container {
   background: rgba(255, 255, 255, 0.1);
   padding: 30px;
-  border-radius: 10px;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
+  max-width: 500px;
 }
 
 /* Main heading styles */
@@ -32,21 +33,23 @@ h1 {
 input[type="file"] {
   display: block;
   margin: 15px auto;
+  color: #fff;
 }
 
 button {
-  background-color: #ff7e5f;
+  background-color: #ff416c;
   color: white;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 button:hover {
-  background-color: #feb47b;
+  background-color: #ff4b2b;
+  transform: scale(1.05);
 }
 
 /* Result section styles */
@@ -55,7 +58,7 @@ button:hover {
 }
 
 #upscaledImage {
-  width: 80%;
+  width: 100%;
   margin-top: 20px;
   border-radius: 10px;
 }
