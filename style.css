@@ -1,8 +1,8 @@
 body {
     margin: 0;
-    font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #74ebd5 0%, #9face6 100%);
-    color: #333;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Stylish gradient background */
+    color: #fff;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -11,44 +11,51 @@ body {
 
 .container {
     text-align: center;
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    max-width: 400px; /* Max width for the container */
+    backdrop-filter: blur(10px); /* Blurring background for a stylish effect */
 }
 
 h1 {
     margin-bottom: 20px;
+    font-size: 24px; /* Adjusted font size for better visibility */
 }
 
 input[type="file"] {
     margin-bottom: 20px;
     padding: 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
+    border: none; /* Removed border for a clean look */
+    background: #ff7eb3; /* Button background color */
+    color: #fff; /* Text color */
 }
 
 button {
     padding: 10px 15px;
     border: none;
     border-radius: 5px;
-    background-color: #5e72e4;
+    background-color: #ff758c; /* Stylish button color */
     color: white;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.2s;
 }
 
 button:hover {
-    background-color: #4e61d4;
+    background-color: #ff5c76; /* Darker shade on hover */
+    transform: scale(1.05); /* Slight scale effect on hover */
 }
 
-#result {
+.result {
     margin-top: 20px;
+    display: none; /* Hide result initially */
 }
 
 #upscaledImage {
     max-width: 100%;
     margin-top: 10px;
-    border: 2px solid #ccc;
+    border: 2px solid #fff; /* White border for the image */
     border-radius: 5px;
 }
