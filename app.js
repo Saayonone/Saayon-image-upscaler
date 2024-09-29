@@ -2,7 +2,7 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
     const fileInput = document.getElementById("imageInput");
     const resultDiv = document.getElementById("result");
     const upscaledImage = document.getElementById("upscaledImage");
-    const downloadLink = document.getElementById("downloadLink");
+    const downloadBtn = document.getElementById("downloadBtn");
 
     if (!fileInput.files.length) {
         alert("Please select an image first.");
@@ -17,7 +17,7 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
         const response = await fetch("https://api.deepai.org/api/torch-srgan", {
             method: "POST",
             headers: {
-                "Api-Key": "f9a4be1a-73ca-465f-9fbb-4ff8e57ba43c"
+                "Api-Key": "f9a4be1a-73ca-465f-9fbb-4ff8e57ba43c" // Your API Key here
             },
             body: formData
         });
@@ -28,12 +28,19 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
         }
 
         const data = await response.json();
+        console.log(data); // Log the response to inspect it
 
         if (data && data.output_url) {
             upscaledImage.src = data.output_url;
-            downloadLink.href = data.output_url;
-            downloadLink.download = "upscaled_image.png"; // Name of the downloaded file
-            downloadLink.style.display = "inline"; // Show the download link
+            downloadBtn.style.display = "inline-block";
+            downloadBtn.onclick = () => {
+                const link = document.createElement('a');
+                link.href = data.output_url;
+                link.download = 'upscaled_image.png'; // Change the file name if needed
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
         } else if (data.error) {
             alert("Error from DeepAI API: " + data.error);
         } else {
