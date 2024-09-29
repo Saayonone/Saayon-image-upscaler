@@ -17,7 +17,7 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
     const response = await fetch("https://api.deepai.org/api/torch-srgan", {
       method: "POST",
       headers: {
-        "Api-Key": "3f6a0961-0bd3-4f64-8f2f-d176aa62f9df"
+        "Api-Key": "810f7f3e-766f-4632-8b92-ac2e56dbabca"
       },
       body: formData
     });
