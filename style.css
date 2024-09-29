@@ -1,61 +1,70 @@
+/* Apply gradient background */
 body {
-    margin: 0;
-    font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #ff758c, #ff7eb3); /* Stylish gradient background */
-    color: #fff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7, #91eae4); /* Gradient colors */
+  color: #fff;
+  text-align: center;
 }
 
+/* Style the container */
 .container {
-    text-align: center;
-    background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 15px;
-    padding: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
-    max-width: 400px; /* Max width for the container */
-    backdrop-filter: blur(10px); /* Blurring background for a stylish effect */
+  background: rgba(255, 255, 255, 0.1);
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  max-width: 500px;
 }
 
+/* Main heading styles */
 h1 {
-    margin-bottom: 20px;
-    font-size: 24px; /* Adjusted font size for better visibility */
+  font-size: 36px;
+  margin-bottom: 20px;
+  letter-spacing: 2px;
 }
 
+/* File input and button styles */
 input[type="file"] {
-    margin-bottom: 20px;
-    padding: 10px;
-    border-radius: 5px;
-    border: none; /* Removed border for a clean look */
-    background: #ff7eb3; /* Button background color */
-    color: #fff; /* Text color */
+  display: block;
+  margin: 15px auto;
+  color: #fff;
 }
 
 button {
-    padding: 10px 15px;
-    border: none;
-    border-radius: 5px;
-    background-color: #ff758c; /* Stylish button color */
-    color: white;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.2s;
+  background-color: #ff416c;
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s;
 }
 
 button:hover {
-    background-color: #ff5c76; /* Darker shade on hover */
-    transform: scale(1.05); /* Slight scale effect on hover */
+  background-color: #ff4b2b;
+  transform: scale(1.05);
 }
 
-.result {
-    margin-top: 20px;
-    display: none; /* Hide result initially */
+/* Result section styles */
+#result {
+  margin-top: 20px;
 }
 
 #upscaledImage {
-    max-width: 100%;
-    margin-top: 10px;
-    border: 2px solid #fff; /* White border for the image */
-    border-radius: 5px;
+  width: 100%;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+/* Style the subheading */
+h2 {
+  font-size: 24px;
+  margin-bottom: 10px;
 }
