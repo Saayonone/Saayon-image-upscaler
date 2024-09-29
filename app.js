@@ -22,15 +22,25 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
       body: formData
     });
 
+    // Check if the response is ok (status 200)
+    if (!response.ok) {
+      alert("HTTP Error: " + response.status);
+      return;
+    }
+
     const data = await response.json();
+    console.log(data); // Log the response to inspect it
+
     if (data && data.output_url) {
       // Display the upscaled image
       upscaledImage.src = data.output_url;
+    } else if (data.error) {
+      alert("Error from DeepAI API: " + data.error);
     } else {
-      alert("Failed to upscale the image.");
+      alert("Failed to upscale the image. Response data is incomplete.");
     }
   } catch (error) {
     console.error("Error upscaling image:", error);
-    alert("There was an error processing your request.");
+    alert("There was an error processing your request: " + error.message);
   }
 });
