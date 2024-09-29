@@ -17,7 +17,7 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
         const response = await fetch("https://api.deepai.org/api/torch-srgan", {
             method: "POST",
             headers: {
-                "Api-Key": "f9a4be1a-73ca-465f-9fbb-4ff8e57ba43c" // Your API Key here
+                "Api-Key": "810f7f3e-766f-4632-8b92-ac2e56dbabca" // Your API Key here
             },
             body: formData
         });
@@ -28,11 +28,12 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
         }
 
         const data = await response.json();
-        console.log(data); // Log the response to inspect it
 
         if (data && data.output_url) {
             upscaledImage.src = data.output_url;
             downloadBtn.style.display = "inline-block";
+            resultDiv.style.display = "block"; // Show result section
+
             downloadBtn.onclick = () => {
                 const link = document.createElement('a');
                 link.href = data.output_url;
