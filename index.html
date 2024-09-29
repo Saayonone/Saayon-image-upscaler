@@ -1,22 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Saayon Image Upscaler</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Image Upscaler</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Saayon Image Upscaler</h1>
-        <input type="file" id="imageInput" accept="image/*" />
-        <button id="uploadBtn">Upscale Image</button>
-        <div id="result" class="result">
-            <h2>Upscaled Image</h2>
-            <img id="upscaledImage" src="" alt="Upscaled Image" />
-            <button id="downloadBtn" style="display: none;">Download Image</button>
-        </div>
+  <div class="container">
+    <h1>Saayon Image Upscaler</h1>
+    <input type="file" id="imageInput" accept="image/*" />
+    <button id="uploadBtn">Upscale Image</button>
+    <div id="result">
+      <h2>Upscaled Image</h2>
+      <img id="upscaledImage" src="" alt="Upscaled Image" />
+<button id="downloadBtn" style="display: none;">Download Image</button>
     </div>
-    <script src="app.js"></script>
+  </div>
+
+  <script src="app.js"></script>
 </body>
 </html>
