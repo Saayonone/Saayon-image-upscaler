@@ -12,10 +12,13 @@
     <input type="file" id="imageInput" accept="image/*" />
     <button id="uploadBtn">Upscale Image</button>
     
-    <div id="progress" style="display:none;">
-      <p>Upscaling... <span id="progressPercentage">0%</span></p>
+    <!-- Progress Display -->
+    <div id="progress">
+      <p id="uploadingProgress" style="display:none;">Uploading Image: 0%</p>
+      <p id="upscalingProgress" style="display:none;">Upscaling Image: Processing...</p>
     </div>
 
+    <!-- Result -->
     <div id="result" style="display:none;">
       <h2>Upscaled Image</h2>
       <img id="upscaledImage" src="" alt="Upscaled Image" />
