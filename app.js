@@ -24,20 +24,19 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
     const response = await fetch("https://api.deepai.org/api/torch-srgan", {
       method: "POST",
       headers: {
-        "Api-Key": "da778622-f82f-4e62-a74b-bd4f286517f4" // Replace with your actual API Key
+        "Api-Key": "da778622-f82f-4e62-a74b-bd4f286517f4" // Your API Key
       },
       body: formData
     });
 
-    // Check if the response is OK (status code 200)
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-
     const data = await response.json();
+
+    // Log the response for debugging
+    console.log("API Response:", data);
+    
     processingMessage.style.display = "none"; // Hide processing message after response
 
-    if (data && data.output_url) {
+    if (response.ok && data.output_url) {
       // Display the upscaled image
       upscaledImage.src = data.output_url;
       resultDiv.style.display = "block"; // Show result section
@@ -54,9 +53,12 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
       };
     } else {
       alert("Failed to upscale the image. Please try again.");
+      if (data && data.message) {
+        console.error("Error message from API:", data.message);
+      }
     }
   } catch (error) {
     console.error("Error upscaling image:", error);
-    alert("There was an error processing your request: " + error.message);
+    alert("There was an error processing your request. Please try again.");
   }
 });
