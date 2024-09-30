@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Upscaler</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Upscaler</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Saayon Image Upscaler</h1>
-    <input type="file" id="imageInput" accept="image/*" />
-    <button id="uploadBtn">Upscale Image</button>
-    
-    <!-- Progress Display -->
-    <div id="progress">
-      <p id="uploadingProgress" style="display:none;">Uploading Image: 0%</p>
-      <p id="upscalingProgress" style="display:none;">Upscaling Image: Processing...</p>
+    <div class="container">
+        <h1>Saayon Image Upscaler</h1>
+        <input type="file" id="imageInput" accept="image/*" />
+        <button id="uploadBtn">Upscale Image</button>
+        <div id="progress-container">
+            <p id="uploadProgress">Upload Progress: 0%</p>
+            <p id="upscaleProgress">Upscale Progress: 0%</p>
+        </div>
+        <div id="result">
+            <h2>Upscaled Image</h2>
+            <img id="upscaledImage" src="" alt="Upscaled Image" />
+            <button id="downloadBtn" style="display: none;">Download Image</button>
+        </div>
     </div>
-
-    <!-- Result -->
-    <div id="result" style="display:none;">
-      <h2>Upscaled Image</h2>
-      <img id="upscaledImage" src="" alt="Upscaled Image" />
-      <button id="downloadBtn" style="display:none;">Download Image</button>
-    </div>
-  </div>
-
-  <script src="app.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
