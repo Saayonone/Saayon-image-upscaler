@@ -69,8 +69,7 @@ h2 {
   margin-bottom: 10px;
 }
 
-/* Progress display styles */
-#progress {
-  margin-top: 15px;
+/* Progress text styles */
+#progress p {
   font-size: 18px;
 }
