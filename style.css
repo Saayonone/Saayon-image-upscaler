@@ -68,3 +68,9 @@ h2 {
   font-size: 24px;
   margin-bottom: 10px;
 }
+
+/* Progress display styles */
+#progress {
+  margin-top: 15px;
+  font-size: 18px;
+}
