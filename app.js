@@ -3,6 +3,8 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
   const resultDiv = document.getElementById("result");
   const upscaledImage = document.getElementById("upscaledImage");
   const downloadBtn = document.getElementById("downloadBtn");
+  const progressDiv = document.getElementById("progress");
+  const progressPercentage = document.getElementById("progressPercentage");
 
   if (!fileInput.files.length) {
     alert("Please select an image first.");
@@ -14,7 +16,10 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
   formData.append("image", file);
 
   try {
-    // Make API call to DeepAI
+    // Show progress section
+    progressDiv.style.display = 'block';
+    progressPercentage.textContent = '0%';
+
     const response = await fetch("https://api.deepai.org/api/torch-srgan", {
       method: "POST",
       headers: {
@@ -23,27 +28,45 @@ document.getElementById("uploadBtn").addEventListener("click", async function() 
       body: formData
     });
 
-    const data = await response.json();
-    if (response.ok && data && data.output_url) {
-      // Display the upscaled image
-      upscaledImage.src = data.output_url;
-      resultDiv.style.display = "block"; // Show result section
-      downloadBtn.style.display = "inline-block"; // Show download button
+    if (response.ok) {
+      const data = await response.json();
       
-      // Set up the download button
-      downloadBtn.onclick = () => {
-        const link = document.createElement('a');
-        link.href = data.output_url;
-        link.download = 'upscaled_image.png'; // Change the file name if needed
-        document.body.appendChild(link);
-        link.click();
-        document.body.removeChild(link);
-      };
+      // Simulate progress
+      let progress = 0;
+      const interval = setInterval(() => {
+        progress += 20;
+        progressPercentage.textContent = `${progress}%`;
+        if (progress >= 100) clearInterval(interval);
+      }, 300);
+
+      if (data && data.output_url) {
+        setTimeout(() => {
+          // Hide progress section
+          progressDiv.style.display = 'none';
+
+          // Show result and display upscaled image
+          upscaledImage.src = data.output_url;
+          resultDiv.style.display = 'block';
+          downloadBtn.style.display = 'block';
+
+          // Set up download functionality
+          downloadBtn.onclick = () => {
+            const link = document.createElement('a');
+            link.href = data.output_url;
+            link.download = 'upscaled_image.png';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          };
+        }, 1600); // Slight delay to show 100% progress
+      } else {
+        alert("Failed to upscale the image.");
+      }
     } else {
-      alert("Failed to upscale the image: " + (data.error || "Unknown error"));
+      alert("HTTP Error: " + response.status);
     }
   } catch (error) {
     console.error("Error upscaling image:", error);
-    alert("There was an error processing your request: " + error.message);
+    alert("There was an error processing your request.");
   }
 });
